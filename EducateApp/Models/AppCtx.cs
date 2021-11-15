@@ -5,8 +5,7 @@ namespace EducateApp.Models
 {
     public class AppCtx : IdentityDbContext<User>
     {
-        public AppCtx(DbContextOptions<AppCtx> options)
-            : base(options)
+        public AppCtx(DbContextOptions<AppCtx> options) : base(options)
         {
             Database.EnsureCreated();
         }
