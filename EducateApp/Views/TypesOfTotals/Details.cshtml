@@ -1,0 +1,24 @@
+﻿@model EducateApp.Models.Data.TypeOfTotal
+
+@{
+    ViewData["Title"] = "Виды промежуточной аттестации";
+}
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Просмотр вида промежуточной аттестации
+</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CertificateName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CertificateName)
+        </dd>
+    </dl>
+</div>
