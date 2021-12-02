@@ -19,15 +19,12 @@
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    @if (IsSectionDefined("Header"))
-                    {
+                    @if (IsSectionDefined("Header")) {
                         @RenderSection("Header")
                     }
-                    else
-                    {
+                    else {
                         //если пользователь вошел в систему
-                        @if (User.Identity.IsAuthenticated)
-                        {
+                        @if (User.Identity.IsAuthenticated) {
                             // то он видит вкладку "Главная"
                             <ul class="navbar-nav flex-grow">
                                 <li>
@@ -37,14 +34,22 @@
                                 </li>
 
                                 @*если пользователь с ролью админ, то он получает доступ к работе со всеми пользователями системы*@
-                                @if (User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).Select(s => s.Value).Contains("admin"))
-                                {
+                                @if (User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).Select(s => s.Value).Contains("admin")) {
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-controller="Users" asp-action="Index" title="Пользователи">
                                             <i class="far fa-user"></i>  Пользователи
                                         </a>
                                     </li>
                                 }
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fas fa-chalkboard-teacher"></i>  Информация об обучении
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item text-dark" asp-controller="FormsOfStudy" asp-action="Index">Формы обучения</a>
+                                    </div>
+                                </li>
                             </ul>
 
                             // с левой стороны, пользователь видит свой свою почту с выпадающим меню
@@ -70,8 +75,7 @@
 
                         }
                         // если пользователь не вошел на сайт, то для него отображается в качестве главной страницы вход в систему
-                        else
-                        {
+                        else {
                             <ul class="navbar-nav">
                                 <li>
                                     <a class="nav-link text-dark" asp-controller="Account" asp-action="Login" title="Главная">
