@@ -1,14 +1,14 @@
 ﻿@model EducateApp.Models.Data.Discipline
 
 @{
-    ViewData["Title"] = "Удаление дисциплины";
+    ViewData["Title"] = "Детали дисциплины";
 }
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
         <li class="breadcrumb-item"><a asp-controller="Disciplines" asp-action="Index">Дисциплины</a></li>
-        <li class="breadcrumb-item active">Удаление</li>
+        <li class="breadcrumb-item active">Детали</li>
     </ol>
 </nav>
 
@@ -16,11 +16,10 @@
     <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
         <i class="fas fa-arrow-left"></i>
     </a>
-    Удаление дисциплины
 </h3>
 
 <div>
-    <h4>Disciplines</h4>
+    <h4>Просмотр дисциплины</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-3">
@@ -54,9 +53,4 @@
             @Html.DisplayFor(model => model.ShortName)
         </dd>
     </dl>
-
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" />
-    </form>
 </div>
