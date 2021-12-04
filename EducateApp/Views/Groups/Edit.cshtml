@@ -77,9 +77,24 @@
 @section Scripts {
     <script type="text/javascript">
         $(function () {
+            $(document).ready(function ()
+            {
+                // получаем выбранный id
+                var id = $(this).find('option:selected').val();
+                console.log(id);
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("GetItems")/' + id,
+                    success: function (data) {
+
+                        // заменяем содержимое присланным частичным представлением
+                        $('#specialty').replaceWith(data);
+                    }
+                });
+            });
             // когда вызывается событие change для элемента управления
             // т.е. выбирается новый элемент списка
-            $('#formOfStudy').change(function()
+            $('#formOfStudy').change(function ()
             {
                 // получаем выбранный id
                 var id = $(this).val();
