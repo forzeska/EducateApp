@@ -160,7 +160,7 @@ namespace EducateApp.Controllers {
                 return NotFound();
             }
 
-            return View(typeOfTotal);
+            return PartialView(typeOfTotal);
         }
 
         private bool TypeOfTotalExists(short id) {
