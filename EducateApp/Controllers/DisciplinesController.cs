@@ -49,7 +49,7 @@ namespace EducateApp.Controllers {
 
             if (_context.Disciplines
                 .Where(f => f.IdUser == user.Id &&
-                    f.Name == model.Name).FirstOrDefault() != null) {
+                    f.IndexProfModule == model.IndexProfModule || f.ProfModule == model.ProfModule).FirstOrDefault() != null) {
                 ModelState.AddModelError("", "Введенный вид дисциплины уже существует");
             }
 

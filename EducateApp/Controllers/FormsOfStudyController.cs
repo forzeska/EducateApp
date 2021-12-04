@@ -15,9 +15,8 @@ namespace EducateApp.Controllers {
         private readonly AppCtx _context;
         private readonly UserManager<User> _userManager;
 
-        public FormsOfStudyController(
-            AppCtx context,
-            UserManager<User> user) {
+        public FormsOfStudyController(AppCtx context, UserManager<User> user) 
+        {
             _context = context;
             _userManager = user;
         }
